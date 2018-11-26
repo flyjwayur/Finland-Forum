@@ -1,0 +1,1 @@
+{"versions":{"1.0.0":{"name":"p-defer","version":"1.0.0","devDependencies":{"ava":"*","xo":"*"},"_hasShrinkwrap":false,"directories":{},"dist":{"shasum":"9f6eb182f6c9aa8cd743004a7d4f96b196b0fb0c","tarball":"https://registry.npmjs.org/p-defer/-/p-defer-1.0.0.tgz"},"engines":{"node":">=4"}}},"name":"p-defer","dist-tags":{"latest":"1.0.0"},"modified":"2017-07-05T06:17:26.450Z"}
