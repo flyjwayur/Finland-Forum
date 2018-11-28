@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 const NewPost = (props) => {
   let { title, category, body, handleInputs, handleSave } = props;
- console.log(props);
+
   const onhandleSubmit = (e) => {
       e.preventDefault();
       //Save the inputs

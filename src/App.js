@@ -40,9 +40,14 @@ class App extends Component {
         }
       ])
     });
-
- 
   };
+
+  handleDelete = (item) => {
+    const newPostList = this.state.posts.filter(i => i.id !== item.id) 
+    this.setState({
+      posts : newPostList
+    })
+  }
 
   componentDidUpdate() {
     console.log({
@@ -59,11 +64,11 @@ class App extends Component {
       return (
         <ViewPostPage
           post={
-            this.state.posts.filter(
-              post => post.id === parseInt(match.params.postId, 10)
-            )[0]
+            this.state.posts.find(
+              post => { return post.id === parseInt(match.params.postId, 10) }
+            )
           }
-        />
+          handleDelete={this.handleDelete}/>
       );
     };
  
