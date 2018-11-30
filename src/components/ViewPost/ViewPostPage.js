@@ -1,9 +1,9 @@
 import React from "react";
-import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem, Jumbotron } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const ViewPost = (props) => {
-
+ console.log(props);
   const { post, handleDelete, history } = props;
   const onHandleDelete = (post) => {
     //Delete the post
@@ -14,7 +14,8 @@ const ViewPost = (props) => {
   console.log(post);
 
   return (
-    <div className="container">
+    <div>
+    <Jumbotron>
       <div className="row">
         <Breadcrumb>
           <BreadcrumbItem>
@@ -31,6 +32,7 @@ const ViewPost = (props) => {
           <div>{post.body}</div>
         </div>
       </div>
+    </Jumbotron>
     </div>
   );
 };

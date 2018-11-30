@@ -1,0 +1,61 @@
+.wrapper{
+  background-color: #364652;
+  color : #F7F7FF; 
+  margin-top: 1rem;
+  padding-top: 3rem;
+  padding-bottom : 3rem;
+  text-align: center;
+}
+
+.postsWrapper{
+  margin-top: 2rem;
+}
+
+.card{
+  background-color: 'fff';
+  color: #364652;
+  border : 2px solid #577399;
+  margin : 1rem;
+}
+
+.cardBody:hover{
+  background-color: #BDD5EA;
+}
+
+.cardText{
+  color: #364652;
+  font-family: var(--font-content1);
+  font-size : 1.5rem;
+}
+
+.cardLink{
+  text-decoration: none; 
+}
+
+.highlightText{
+  color: #FE5F55;
+  margin: auto 0.2rem;
+}
+
+.introFont {
+  font-family : var(--font-title);
+}
+
+.introTextLeft{
+  margin-right: 10rem;
+}
+
+.introTextRight{
+  margin-left: 10rem;
+}
+
+.addPost{
+  font-size : 4rem;
+  color : #FE5F55;
+  float: right;
+  margin-right: 5rem;
+}
+
+.addPost:hover{
+  color: #b50c01;
+}

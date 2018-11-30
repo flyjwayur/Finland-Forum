@@ -1,5 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower|Montserrat:400,800|Open+Sans|Oswald");
+
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root{
+  /*font style*/
+--font-title : 'Oswald', sans-serif;
+--font-content1 : 'Indie Flower', cursive;
+--font-content2 : 'Amatic SC', cursive;
+
+  /* color */
+
 }
