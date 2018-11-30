@@ -1,15 +1,15 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ViewPost = (props) => {
 
-  const { post, handleDelete } = props;
+  const { post, handleDelete, history } = props;
   const onHandleDelete = (post) => {
     //Delete the post
     handleDelete(post);
     //Direct to the home page
-    props.history.push('/');
+    history.push('/');
 }
   console.log(post);
 
@@ -35,4 +35,4 @@ const ViewPost = (props) => {
   );
 };
 
-export default withRouter(ViewPost);
+export default ViewPost;

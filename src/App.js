@@ -60,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-    const PostWithId = ({ match }) => {
+    const PostWithId = ({ match, history }) => {
       return (
         <ViewPostPage
           post={
@@ -68,7 +68,8 @@ class App extends Component {
               post => { return post.id === parseInt(match.params.postId, 10) }
             )
           }
-          handleDelete={this.handleDelete}/>
+          handleDelete={this.handleDelete}
+          history={history}/>
       );
     };
  
@@ -85,13 +86,14 @@ class App extends Component {
           <Route
             exact
             path="/posts/newpost"
-            render={() => (
+            render={(props) => (
               <NewPostPage
                 title={this.state.title}
                 category={this.state.category}
                 body={this.state.body}
                 handleInputs={this.handleInputs}
                 handleSave={this.handleSave}
+                {...props}
               />
             )}
           />

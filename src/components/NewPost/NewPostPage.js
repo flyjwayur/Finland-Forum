@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "../UI/Button/Button";
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const NewPost = (props) => {
+  console.log(props);
   let { title, category, body, handleInputs, handleSave } = props;
 
   const onhandleSubmit = (e) => {
@@ -62,4 +63,4 @@ const NewPost = (props) => {
   );
 };
 
-export default withRouter(NewPost);
+export default NewPost;
