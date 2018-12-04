@@ -1,5 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from  'redux';
-import { addPostsReducer } from './reducers/addPostsReducer';
+import { addDeletePostsReducer } from './reducers/addDeletePostsReducer';
 import { createForms } from 'react-redux-form';
 import thunk from 'redux-thunk';
 
@@ -15,7 +15,7 @@ const AllEnhancers = compose(
 )
 
 const allReducers = combineReducers({
-  addedPosts : addPostsReducer,
+  addedDeletedPosts : addDeletePostsReducer,
   ...createForms({
     newPostForm : initialFormState
   })  

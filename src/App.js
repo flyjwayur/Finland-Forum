@@ -6,8 +6,8 @@ import NewPostPage from "./components/NewPost/NewPostPage";
 import ViewPostPage from "./components/ViewPost/ViewPostPage";
 import Navigation from "./components/Navigation/Navigation";
 import { connect } from "react-redux";
-import { actions } from 'react-redux-form';
 import { addPost } from './store/actions/addPostAction';
+import { deletePost } from './store/actions/deletePostAction';
 
 class App extends Component {
 
@@ -15,11 +15,12 @@ class App extends Component {
     this.props.onAddPost(inputs);
   };
 
-  handleDelete = (item) => {
-    const newPostList = this.props.posts.filter(i => i.id !== item.id) 
-    this.setState({
-      posts : newPostList
-    })
+  handleDelete = (post) => {
+    this.props.onDeletePost(post);
+    // const newPostList = this.props.posts.filter(i => i.id !== item.id) 
+    // this.setState({
+    //   posts : newPostList
+    // })
   }
 
   componentDidUpdate() {
@@ -34,9 +35,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     const PostWithId = ({ match, history }) => {
-      console.log("see postId", match.params.id);
       return (
         <ViewPostPage
           post={
@@ -48,9 +47,8 @@ class App extends Component {
           history={history}/>
       );
     };
- 
+    console.log("test",this.props.posts);
     return (
-      
       <div>
         <Navigation />
         <Switch>
@@ -81,7 +79,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts : state.addedPosts.posts,
+    posts : state.addedDeletedPosts.posts,
     id: state.newPostForm.id,
     title: state.newPostForm.title,
     category: state.newPostForm.category,
@@ -91,7 +89,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddPost : (inputs) => dispatch(addPost(inputs))
+    onAddPost : (inputs) => dispatch(addPost(inputs)),
+    onDeletePost : (post) => dispatch(deletePost(post))
   }
 }
 

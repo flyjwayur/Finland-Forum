@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const ViewPost = props => {
   const { post, handleDelete, history } = props;
+  console.log("post form view", handleDelete);
   const onHandleDelete = post => {
     //Delete the post
     handleDelete(post);
