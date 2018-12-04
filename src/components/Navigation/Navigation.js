@@ -8,7 +8,7 @@ import {
   NavItem
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import './navigation.css';
+import "./navigation.css";
 
 class Navigation extends Component {
   state = {
@@ -23,7 +23,9 @@ class Navigation extends Component {
     return (
       <div>
         <Navbar expand="md" className="navBar">
-          <NavbarBrand id="navBrand" href="/">Finland Forum</NavbarBrand>
+          <NavbarBrand id="navBrand" href="/">
+            Finland Forum
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggleNav} />
           <Collapse isOpen={this.state.isNavOpen} navbar>
             <Nav className="ml-auto" navbar>

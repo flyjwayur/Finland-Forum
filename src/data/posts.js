@@ -1,3 +1,5 @@
+import uuid from 'uuid';
+
 export const posts = [
   {
     id: 1,

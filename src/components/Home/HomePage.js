@@ -1,13 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Container
-} from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { Card, CardBody, CardTitle, CardSubtitle, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./homePage.css";
 
@@ -42,7 +36,7 @@ const HomePage = ({ posts }) => {
             How is <span className="highlightText"> ' your day '</span>?
           </h4>
           <Link to="/posts/newpost">
-          <FontAwesomeIcon icon={faPlusCircle} className="addPost"/>
+            <FontAwesomeIcon icon={faPlusCircle} className="addPost" />
           </Link>
         </div>
       </Container>

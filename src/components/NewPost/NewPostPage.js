@@ -1,16 +1,16 @@
 import React from "react";
-import Button from "../UI/Button/Button";
 import { Link } from 'react-router-dom';
+import { Control, LocalForm } from 'react-redux-form';
+import { Row, Button } from 'reactstrap';
 
 
 const NewPost = (props) => {
-  console.log(props);
-  let { title, category, body, handleInputs, handleSave } = props;
-
-  const onhandleSubmit = (e) => {
-      e.preventDefault();
+  let { handleSave, posts } = props;
+  const onhandleSubmit = ({title, category, body}) => {
+     const id = posts.length +1 ;
+     const post = { id : id, title, category, body }
       //Save the inputs
-      handleSave();
+      handleSave(post);
       //Direct to the home page
       props.history.push('/');
   }
@@ -18,47 +18,47 @@ const NewPost = (props) => {
 
   return (
     <div className="jumbotron">
-      <form onSubmit={onhandleSubmit}>
-      <div>
+      <LocalForm model="inputs" onSubmit={(inputs) => onhandleSubmit(inputs)}>
+      <Row className="form-group">
       <label htmlFor="title">Title:</label>
-      </div>
-          <input
-            type="text"
+          <Control.text
+            model="inputs.title"
             id="title"
             name="title"
-            value={title}
-            onChange={handleInputs}
             placeholder="ex) My day"
+            className="form-control"
             required/>
-        <div>
+        </Row>
+        <Row className="form-group">
           <label htmlFor="category">Category:</label>
-          <input
-            type="text"
+          <Control.text
+            model="inputs.category"
             name="category"
             id="category"
-            value={category}
-            onChange={handleInputs}
             placeholder="ex) work"
+            className="form-control"
             required
           />
-        </div>
-        <div>
+        </Row>
+        <Row className="form-group">
           <label htmlFor="body">Write New Post:</label>
-          <textarea
+          <Control.textarea
+            model="inputs.body"
             id="body"
             rows="10"
             cols="60"
             name="body"
-            value={body}
-            onChange={handleInputs}
             placeholder="ex) I was happy to do something"
+            className="form-control"
             required
           />
-        </div>
+        </Row>
+        <Row className="form-group">
         <Button type="submit" 
         >Save</Button>
         <Link to="/"><Button type="cancel">Cancel</Button></Link>
-      </form>
+        </Row>
+      </LocalForm>
     </div>
   );
 };
