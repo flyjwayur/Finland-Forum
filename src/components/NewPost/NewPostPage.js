@@ -11,8 +11,9 @@ const NewPost = (props) => {
      const post = { id : id, title, category, body }
       //Save the inputs
       handleSave(post);
-      //Direct to the home page
+      //// both history.push and goBack works to direct to 'Home'
       props.history.push('/');
+      //props.history.goBack();
   }
 
 
@@ -54,7 +55,7 @@ const NewPost = (props) => {
           />
         </Row>
         <Row className="form-group">
-        <Button type="submit" 
+       <Button type="submit" 
         >Save</Button>
         <Link to="/"><Button type="cancel">Cancel</Button></Link>
         </Row>
