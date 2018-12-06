@@ -1,9 +1,9 @@
-import { ADD_POST, DELETE_POST } from "../actions/actionTypes";
+import { ADD_POST, DELETE_POST, ACTIVE_POST_EDIT, UPDATE_POST } from "../actions/actionTypes";
 import { posts } from "../../data/posts";
 
-export const initialPostState = { posts };
+export const initialPostState = { posts, editable: false, editablePost: ""};
 
-export const addDeletePostsReducer = (state = initialPostState, action) => {
+export const postsReducer = (state = initialPostState, action) => {
   switch (action.type) {
     case ADD_POST:
       return { ...state, posts: [...state.posts, action.payload] };
@@ -26,6 +26,25 @@ export const addDeletePostsReducer = (state = initialPostState, action) => {
           ...state.posts.slice(indexOfpost + 1, state.posts.length)
         ]
       };
+      case ACTIVE_POST_EDIT:
+      const editabelPostId = action.payload.id;
+      const activeEditOnPost = state.posts.map(post => {
+        if(post.id === editabelPostId){
+          state.editable = true;
+        }
+        return post;
+      })
+      return{
+        ...state,
+        editable : true,
+        editablePost : {...state.editablePost, editablePost: activeEditOnPost}
+      }
+      case UPDATE_POST:
+      return {
+        ...state,
+        editable : false,
+        post : [...state.post, action.payload]
+      }
     default:
       return state;
   }

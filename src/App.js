@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation/Navigation";
 import { connect } from "react-redux";
 import { addPost } from './store/actions/addPostAction';
 import { deletePost } from './store/actions/deletePostAction';
+import { activePostEdit } from './store/actions/activePostEditAction';
+import { updatePost } from './store/actions/updatePostAction';
 
 class App extends Component {
 
@@ -17,10 +19,11 @@ class App extends Component {
 
   handleDelete = (post) => {
     this.props.onDeletePost(post);
-    // const newPostList = this.props.posts.filter(i => i.id !== item.id) 
-    // this.setState({
-    //   posts : newPostList
-    // })
+  }
+
+  handleActivePostEdit = (post) => {
+    console.log('from edit click');
+    this.props.onActivePostEdit(post);
   }
 
   componentDidUpdate() {
@@ -44,6 +47,8 @@ class App extends Component {
             )
           }
           handleDelete={this.handleDelete}
+          onActivePostEdit={this.handleActivePostEdit}
+          editable={this.props.editable}
           history={history}/>
       );
     };
@@ -79,18 +84,21 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts : state.addedDeletedPosts.posts,
+    posts : state.updatedPosts.posts,
     id: state.newPostForm.id,
     title: state.newPostForm.title,
     category: state.newPostForm.category,
-    body: state.newPostForm.body
+    body: state.newPostForm.body,
+    editable : state.updatedPosts.editable
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddPost : (inputs) => dispatch(addPost(inputs)),
-    onDeletePost : (post) => dispatch(deletePost(post))
+    onDeletePost : (post) => dispatch(deletePost(post)),
+    onActivePostEdit : (post) => dispatch(activePostEdit(post)),
+    onUpdatePost : (post) => dispatch(updatePost(post))
   }
 }
 
