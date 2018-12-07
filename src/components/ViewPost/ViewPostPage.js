@@ -3,20 +3,15 @@ import { Breadcrumb, BreadcrumbItem, Jumbotron } from "reactstrap";
 import { Link } from "react-router-dom";
 import Editable from "../Editable/Editable";
 
-const ViewPost = props => {
-  const { post, handleDelete, history, onActivePostEdit, editable } = props;
+
+const ViewPost = ({ post, handleDelete, history, onActivePostEdit, editable, handleEditSubmit }) => {
+
   const onHandleDelete = post => {
     //Delete the post
     handleDelete(post);
     //Direct to the home page
     history.push("/");
   };
-
-  const editOrUpdateBtnToggle = editable ? (
-    <button onClick={() => onActivePostEdit(post)}>Update</button>
-  ) : (
-    <button onClick={() => onActivePostEdit(post)}>Edit</button>
-  );
 
   return (
     <div>
@@ -29,9 +24,9 @@ const ViewPost = props => {
             <BreadcrumbItem active>{post.title}</BreadcrumbItem>
           </Breadcrumb>
           <div className="jumbotron col-12">
-            <Editable editable={editable} post={post}/>
+            <Editable editable={editable} post={post} onActivePostEdit={onActivePostEdit} handleEditSubmit={handleEditSubmit}/>
+            {/* Delete button */}
             <button onClick={() => onHandleDelete(post)}>Delete</button>
-            {editOrUpdateBtnToggle}
           </div>
         </div>
       </Jumbotron>

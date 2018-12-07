@@ -11,6 +11,7 @@ import { deletePost } from './store/actions/deletePostAction';
 import { activePostEdit } from './store/actions/activePostEditAction';
 import { updatePost } from './store/actions/updatePostAction';
 
+
 class App extends Component {
 
   handleSave = (inputs) => {
@@ -22,18 +23,24 @@ class App extends Component {
   }
 
   handleActivePostEdit = (post) => {
-    console.log('from edit click');
     this.props.onActivePostEdit(post);
+  }
+
+  handleEditSubmit = (post, inputs) => {
+    //console.log('editablePost', this.props.editablePost);
+    let edittedPost = {id : post.id, title : inputs.title, category : inputs.category, body : inputs.body}
+    console.log(edittedPost)
+    this.props.onUpdatePost(edittedPost);
   }
 
   componentDidUpdate() {
     console.log({
       posts: this.props.posts,
-      id: this.props.posts.id,
       title: this.props.title,
       category: this.props.category,
       body: this.props.body,
-      length: this.props.posts.length
+      length: this.props.posts.length,
+      editable : this.props.editable
     });
   }
 
@@ -49,6 +56,8 @@ class App extends Component {
           handleDelete={this.handleDelete}
           onActivePostEdit={this.handleActivePostEdit}
           editable={this.props.editable}
+          handleEditSubmit={this.handleEditSubmit}
+          handleEditChange={this.handleEditChange}
           history={history}/>
       );
     };
@@ -85,11 +94,10 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     posts : state.updatedPosts.posts,
-    id: state.newPostForm.id,
     title: state.newPostForm.title,
     category: state.newPostForm.category,
     body: state.newPostForm.body,
-    editable : state.updatedPosts.editable
+    editable : state.updatedPosts.editable, 
   }
 }
 

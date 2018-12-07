@@ -1,7 +1,12 @@
-import { ADD_POST, DELETE_POST, ACTIVE_POST_EDIT, UPDATE_POST } from "../actions/actionTypes";
+import {
+  ADD_POST,
+  DELETE_POST,
+  ACTIVE_POST_EDIT,
+  UPDATE_POST
+} from "../actions/actionTypes";
 import { posts } from "../../data/posts";
 
-export const initialPostState = { posts, editable: false, editablePost: ""};
+export const initialPostState = { posts, editable: false};
 
 export const postsReducer = (state = initialPostState, action) => {
   switch (action.type) {
@@ -26,25 +31,26 @@ export const postsReducer = (state = initialPostState, action) => {
           ...state.posts.slice(indexOfpost + 1, state.posts.length)
         ]
       };
-      case ACTIVE_POST_EDIT:
+    case ACTIVE_POST_EDIT:
       const editabelPostId = action.payload.id;
-      const activeEditOnPost = state.posts.map(post => {
-        if(post.id === editabelPostId){
+      state.posts.map( post => {
+        if (post.id === editabelPostId) {
           state.editable = true;
         }
-        return post;
-      })
-      return{
-        ...state,
-        editable : true,
-        editablePost : {...state.editablePost, editablePost: activeEditOnPost}
-      }
-      case UPDATE_POST:
+      });
+      return { ...state, editable: state.editable };
+    case UPDATE_POST:
+    const indexOfEdittedPost = state.posts.findIndex(post => post.id === action.payload.id); 
+    const editablePost = [...state.posts][indexOfEdittedPost] = action.payload;
       return {
         ...state,
-        editable : false,
-        post : [...state.post, action.payload]
-      }
+        editable: false,
+          posts: [
+            ...state.posts.slice(0, indexOfEdittedPost),
+            editablePost,
+            ...state.posts.slice(indexOfEdittedPost + 1, state.posts.length)
+          ]
+        };
     default:
       return state;
   }
