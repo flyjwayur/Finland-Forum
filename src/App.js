@@ -6,32 +6,43 @@ import NewPostPage from "./components/NewPost/NewPostPage";
 import ViewPostPage from "./components/ViewPost/ViewPostPage";
 import Navigation from "./components/Navigation/Navigation";
 import { connect } from "react-redux";
-import { addPost } from './store/actions/addPostAction';
-import { deletePost } from './store/actions/deletePostAction';
-import { activePostEdit } from './store/actions/activePostEditAction';
-import { updatePost } from './store/actions/updatePostAction';
+import { addPost } from "./store/actions/addPostAction";
+import { deletePost } from "./store/actions/deletePostAction";
+import { activePostEdit } from "./store/actions/activePostEditAction";
+import { updatePost } from "./store/actions/updatePostAction";
+import { fetchPostsFromApi } from "./store/actions/fetchPostsFromApiAction";
 
 
 class App extends Component {
+  // Fetch the post data from API
+  componentDidMount() {
+    this.props.onFetchPostsFromAPI();
+  }
 
-  handleSave = (inputs) => {
+  // Handle post Data from users
+  handleSave = inputs => {
     this.props.onAddPost(inputs);
   };
 
-  handleDelete = (post) => {
+  handleDelete = post => {
     this.props.onDeletePost(post);
-  }
+  };
 
-  handleActivePostEdit = (post) => {
+  handleActivePostEdit = post => {
     this.props.onActivePostEdit(post);
-  }
+  };
 
   handleEditSubmit = (post, inputs) => {
     //console.log('editablePost', this.props.editablePost);
-    let edittedPost = {id : post.id, title : inputs.title, category : inputs.category, body : inputs.body}
-    console.log(edittedPost)
+    let edittedPost = {
+      id: post.id,
+      title: inputs.title,
+      category: inputs.category,
+      body: inputs.body
+    };
+    console.log(edittedPost);
     this.props.onUpdatePost(edittedPost);
-  }
+  };
 
   componentDidUpdate() {
     console.log({
@@ -40,7 +51,7 @@ class App extends Component {
       category: this.props.category,
       body: this.props.body,
       length: this.props.posts.length,
-      editable : this.props.editable
+      editable: this.props.editable
     });
   }
 
@@ -48,20 +59,27 @@ class App extends Component {
     const PostWithId = ({ match, history }) => {
       return (
         <ViewPostPage
-          post={
-            this.props.posts.find(
-              post => { return post.id === parseInt(match.params.postId, 10) }
-            )
-          }
+          post={this.props.posts.find(post => {
+            return post.id === parseInt(match.params.postId, 10);
+          })}
           handleDelete={this.handleDelete}
           onActivePostEdit={this.handleActivePostEdit}
           editable={this.props.editable}
           handleEditSubmit={this.handleEditSubmit}
           handleEditChange={this.handleEditChange}
-          history={history}/>
+          history={history}
+        />
       );
     };
-    console.log("test",this.props.posts);
+
+    const htmlFromAPI = () => {
+      return this.props.fetchedPosts.map((post, index) => {
+        return (
+          <div key={index} dangerouslySetInnerHTML={{ __html: post.description.en }} />
+        );
+      });
+    };
+
     return (
       <div>
         <Navigation />
@@ -69,12 +87,12 @@ class App extends Component {
           <Route
             exact
             path="/"
-            component={() => <HomePage posts={this.props.posts}/>}
+            component={() => <HomePage posts={this.props.posts} />}
           />
           <Route
             exact
             path="/posts/newpost"
-            render={(props) => (
+            render={props => (
               <NewPostPage
                 handleSave={this.handleSave}
                 posts={this.props.posts}
@@ -86,6 +104,7 @@ class App extends Component {
           {/* If there is no matching, redirect to home */}
           <Redirect to="/" />
         </Switch>
+        <div>{htmlFromAPI()}</div>
       </div>
     );
   }
@@ -93,22 +112,28 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts : state.updatedPosts.posts,
+    posts: state.updatedPosts.posts,
     title: state.newPostForm.title,
     category: state.newPostForm.category,
     body: state.newPostForm.body,
-    editable : state.updatedPosts.editable, 
-  }
-}
+    editable: state.updatedPosts.editable,
+    fetchedPosts: state.fetchedPostsFromApi
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onAddPost : (inputs) => dispatch(addPost(inputs)),
-    onDeletePost : (post) => dispatch(deletePost(post)),
-    onActivePostEdit : (post) => dispatch(activePostEdit(post)),
-    onUpdatePost : (post) => dispatch(updatePost(post))
-  }
-}
+    onAddPost: inputs => dispatch(addPost(inputs)),
+    onDeletePost: post => dispatch(deletePost(post)),
+    onActivePostEdit: post => dispatch(activePostEdit(post)),
+    onUpdatePost: post => dispatch(updatePost(post)),
+    onFetchPostsFromAPI: () => dispatch(fetchPostsFromApi())
+  };
+};
 
-
-export default withRouter(connect( mapStateToProps, mapDispatchToProps )(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
