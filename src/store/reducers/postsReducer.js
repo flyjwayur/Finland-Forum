@@ -53,5 +53,5 @@ export const postsReducer = (state = initialPostState, action) => {
         };
     default:
       return state;
-  }
+  };
 };

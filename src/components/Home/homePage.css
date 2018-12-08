@@ -1,6 +1,6 @@
 .wrapper{
-  background-color: #364652;
-  color : #F7F7FF; 
+  background-color: var(--dark-indigo);
+  color : var(--nearly-white); 
   margin-top: 1rem;
   padding-top: 3rem;
   padding-bottom : 3rem;
@@ -13,17 +13,18 @@
 
 .card{
   background-color: 'fff';
-  color: #364652;
-  border : 2px solid #577399;
+  color: var(--dark-indigo);
+  border : 2px solid var(--light-indigo);
   margin : 1rem;
 }
 
 .cardBody:hover{
-  background-color: #BDD5EA;
+  background-color: var(--light-yellow);
+  box-shadow: inset 0px 0px 10px var(--yellow);
 }
 
 .cardText{
-  color: #364652;
+  color: var(--dark-indigo);
   font-family: var(--font-content1);
   font-size : 1.5rem;
 }
@@ -33,7 +34,7 @@
 }
 
 .highlightText{
-  color: #FE5F55;
+  color: var(--yellow);
   margin: auto 0.2rem;
 }
 
@@ -43,19 +44,21 @@
 
 .introTextLeft{
   margin-right: 10rem;
+  font-size : 1.7rem;
 }
 
 .introTextRight{
   margin-left: 10rem;
+  font-size : 1.7rem;
 }
 
 .addPost{
   font-size : 4rem;
-  color : #FE5F55;
+  color : var(--light-red);
   float: right;
   margin-right: 5rem;
 }
 
 .addPost:hover{
-  color: #b50c01;
+  color: var(--dark-red); 
 }

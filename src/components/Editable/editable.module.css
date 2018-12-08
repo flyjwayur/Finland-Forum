@@ -1,0 +1,32 @@
+.content_row{
+  margin : 1rem;
+  font-family : var(--font-content1);
+  font-size : 1.2rem;
+  color : var(--dark-indigo);
+}
+
+.content_title{
+  font-weight : 800;
+  font-family : var(--font-title);
+  font-size : 1.3rem;
+  color : var(--light-indigo);
+}
+
+.edit_button{
+  background : var(--vivid-blue);
+  border-radius : 10px;
+  padding : 0.5rem 1rem;
+  color : var(--nearly-white);
+  float: right;
+}
+
+.edit_button:hover{
+  background: var(--light-indigo);
+  float: right;
+}
+
+.content_body{
+  background-color : var(--light-yellow);
+  padding : 1rem;
+  margin-bottom : 3rem;
+}

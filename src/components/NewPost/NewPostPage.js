@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Control, LocalForm } from 'react-redux-form';
-import { Row, Button } from 'reactstrap';
-
+import { Row, Jumbotron } from 'reactstrap';
+import editClasses from '../Editable/editable.module.css';
+import viewClasses from '../ViewPost/viewPostPage.module.css'
 
 const NewPost = (props) => {
   let { handleSave, posts } = props;
@@ -18,10 +19,11 @@ const NewPost = (props) => {
 
 
   return (
-    <div className="jumbotron">
+    <div className={viewClasses.post_wrapper}>
+    <Jumbotron className={viewClasses.jumbotron_hightlight}>
       <LocalForm model="inputs" onSubmit={(inputs) => onhandleSubmit(inputs)}>
       <Row className="form-group">
-      <label htmlFor="title">Title:</label>
+      <label htmlFor="title"><span className={editClasses.content_title}>Title :</span></label>
           <Control.text
             model="inputs.title"
             id="title"
@@ -31,7 +33,7 @@ const NewPost = (props) => {
             required/>
         </Row>
         <Row className="form-group">
-          <label htmlFor="category">Category:</label>
+          <label htmlFor="category"><span className={editClasses.content_title}>Category :</span></label>
           <Control.text
             model="inputs.category"
             name="category"
@@ -42,7 +44,7 @@ const NewPost = (props) => {
           />
         </Row>
         <Row className="form-group">
-          <label htmlFor="body">Write New Post:</label>
+          <label htmlFor="body"><span className={editClasses.content_title}>Write New Post:</span></label>
           <Control.textarea
             model="inputs.body"
             id="body"
@@ -54,12 +56,11 @@ const NewPost = (props) => {
             required
           />
         </Row>
-        <Row className="form-group">
-       <Button type="submit" 
-        >Save</Button>
-        <Link to="/"><Button type="cancel">Cancel</Button></Link>
-        </Row>
+       <button type="submit" className={editClasses.edit_button}
+        >Save</button>
+        <Link to="/"><button type="cancel" className={viewClasses.delete_button}>Cancel</button></Link>
       </LocalForm>
+    </Jumbotron>
     </div>
   );
 };

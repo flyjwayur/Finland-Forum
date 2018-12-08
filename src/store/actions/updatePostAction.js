@@ -4,5 +4,5 @@ export const updatePost = (post) => {
   return {
     type : UPDATE_POST,
     payload : post,
-  }
-}
+  };
+};

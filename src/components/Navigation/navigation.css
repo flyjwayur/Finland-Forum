@@ -5,24 +5,25 @@
 #navBrand{
   font-weight: 900;
   font-size : 2rem;
-  color: #577399;
+  color: var(--light-indigo);
   font-family : var(--font-title);
 }
 
 .navLink{
-  color: #577399;
+  color: var(--light-indigo);
   font-weight: 700;
   font-size: 1.6rem;
   font-family : var(--font-title);
 }
 
 .navLink:hover{
-  border-bottom: 2px solid #577399;
+  border-bottom: 3px solid var(--yellow);
   box-shadow: 2px 2px 2px #ccc;
-  padding: 0.7rem 1.2rem;
-  background-color : #BDD5EA;
+  padding: 0.7rem 0.5rem;
+  background-color : var(--light-blue);
+  color : var(--dark-indigo);
 }
 
 .navLink:active{
-  border-bottom: 2px solid #FE5F55;
+  border-bottom: 3px solid var(--light-red);
 }

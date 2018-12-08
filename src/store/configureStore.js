@@ -24,4 +24,4 @@ const allReducers = combineReducers({
 export const ConfigureStore = () => {
   const store = createStore(allReducers, AllEnhancers);
   return store;
-}
+};
