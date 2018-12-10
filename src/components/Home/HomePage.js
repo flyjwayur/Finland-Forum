@@ -33,7 +33,7 @@ const HomePage = ({ posts }) => {
         <div className="col-12">
           <h4 className="introFont introTextLeft">Hello, HyeSoo : D ,</h4>
           <h4 className="introFont introTextRight">
-            How is <span className="highlightText"> ' your day '</span>?
+            How is <span className="highlightText"> ' your day in Finland '</span>?
           </h4>
           <Link to="/posts/newpost">
             <FontAwesomeIcon icon={faPlusCircle} className="addPost" />
