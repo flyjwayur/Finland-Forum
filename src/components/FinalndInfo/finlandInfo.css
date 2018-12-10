@@ -1,0 +1,11 @@
+.card_wrapper { 
+  display : flex; 
+  flex-wrap : wrap;
+  justify-content: center;
+  padding: 5rem 1rem;
+  background-color : var(--dark-indigo);
+}
+
+.infoCard{
+  flex : 400px 0 1;
+}

@@ -5,18 +5,20 @@ import HomePage from "./components/Home/HomePage";
 import NewPostPage from "./components/NewPost/NewPostPage";
 import ViewPostPage from "./components/ViewPost/ViewPostPage";
 import Navigation from "./components/Navigation/Navigation";
+import FinlandInfo from "./components/FinalndInfo/FinlandInfo";
 import { connect } from "react-redux";
 import { addPost } from "./store/actions/addPostAction";
 import { deletePost } from "./store/actions/deletePostAction";
 import { activePostEdit } from "./store/actions/activePostEditAction";
 import { updatePost } from "./store/actions/updatePostAction";
-import { fetchPostsFromApi } from "./store/actions/fetchPostsFromApiAction";
+import { fetchInfoFromApi } from "./store/actions/fetchInfoFromApiAction";
+
 
 
 class App extends Component {
   // Fetch the post data from API
   componentDidMount() {
-    this.props.onFetchPostsFromAPI();
+    this.props.onFetchInfoFromApi();
   }
 
   // Handle post Data from users
@@ -72,14 +74,6 @@ class App extends Component {
       );
     };
 
-    const htmlFromAPI = () => {
-      return this.props.fetchedPosts.map((post, index) => {
-        return (
-          <div key={index} dangerouslySetInnerHTML={{ __html: post.description.en }} />
-        );
-      });
-    };
-
     return (
       <div>
         <Navigation />
@@ -100,11 +94,20 @@ class App extends Component {
               />
             )}
           />
+          <Route
+            exact
+            path="/info"
+            render={props => (
+              <FinlandInfo
+                info={this.props.fetchedInfo}
+                {...props}
+              />
+            )}
+          />
           <Route exact path="/posts/:postId" component={PostWithId} />
           {/* If there is no matching, redirect to home */}
-          <Redirect to="/" />
+          {/* <Redirect to="/" /> */}
         </Switch>
-        <div>{htmlFromAPI()}</div>
       </div>
     );
   }
@@ -117,7 +120,7 @@ const mapStateToProps = state => {
     category: state.newPostForm.category,
     body: state.newPostForm.body,
     editable: state.updatedPosts.editable,
-    fetchedPosts: state.fetchedPostsFromApi
+    fetchedInfo: state.fetchedInfoFromApi
   };
 };
 
@@ -127,7 +130,7 @@ const mapDispatchToProps = dispatch => {
     onDeletePost: post => dispatch(deletePost(post)),
     onActivePostEdit: post => dispatch(activePostEdit(post)),
     onUpdatePost: post => dispatch(updatePost(post)),
-    onFetchPostsFromAPI: () => dispatch(fetchPostsFromApi())
+    onFetchInfoFromApi: () => dispatch(fetchInfoFromApi())
   };
 };
 

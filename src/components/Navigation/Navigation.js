@@ -39,6 +39,11 @@ class Navigation extends Component {
                   <span className="navLink"> New Post </span>
                 </NavLink>
               </NavItem>
+              <NavItem className="">
+                <NavLink className=".navLink nav-link" to="/Info">
+                  <span className="navLink"> Info</span>
+                </NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
