@@ -1,11 +1,18 @@
-.card_wrapper { 
-  display : flex; 
-  flex-wrap : wrap;
-  justify-content: center;
+.card_wrapper {
   padding: 5rem 1rem;
-  background-color : var(--dark-indigo);
+  background-color: var(--dark-indigo);
 }
 
-.infoCard{
-  flex : 400px 0 1;
+.infoCard {
+  padding: 1rem;
+}
+
+.textTitle {
+  font-weight: 700;
+  color: var(--dark-indigo);
+  font-size: 1.1rem;
+}
+
+.timeToRight {
+  float: right;
 }
