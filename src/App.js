@@ -106,7 +106,7 @@ class App extends Component {
           />
           <Route exact path="/posts/:postId" component={PostWithId} />
           {/* If there is no matching, redirect to home */}
-          {/* <Redirect to="/" /> */}
+          <Redirect to="/" />
         </Switch>
       </div>
     );
