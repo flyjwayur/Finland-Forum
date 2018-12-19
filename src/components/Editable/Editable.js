@@ -39,6 +39,7 @@ const Edit = ({ post, handleEditSubmit, editOrUpdateBtnToggle}) => {
           placeholder={post.title}
           defaultValue={post.title}
           className="form-control"
+          autoFocus={true}
           required
         />
       </Row>

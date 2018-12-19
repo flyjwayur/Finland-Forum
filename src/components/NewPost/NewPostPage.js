@@ -30,6 +30,7 @@ const NewPost = (props) => {
             name="title"
             placeholder="ex) My day"
             className="form-control"
+            autoFocus={true}
             required/>
         </Row>
         <Row className="form-group">
