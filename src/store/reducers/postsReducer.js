@@ -32,9 +32,9 @@ export const postsReducer = (state = initialPostState, action) => {
         ]
       };
     case ACTIVE_POST_EDIT:
-      const editabelPostId = action.payload.id;
+      const editablePostId = action.payload.id;
       state.posts.map( post => {
-        if (post.id === editabelPostId) {
+        if (post.id === editablePostId) {
           state.editable = true;
         }
       });
@@ -53,5 +53,5 @@ export const postsReducer = (state = initialPostState, action) => {
         };
     default:
       return state;
-  };
+  }
 };
