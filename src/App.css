@@ -1,6 +1,6 @@
 .appWrapper {
-  text-align: center;
   background-color: var(--dark-indigo);
+  height: 100%;
 }
 
 .appMain {
