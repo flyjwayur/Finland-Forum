@@ -20,13 +20,13 @@ I was inspired from [this website](https://www.finlandforum.org/)
 - Handle the form with react-redux-form.
 - Fetch event data from Helsinki Dev API(https://api.hel.fi/linkedevents/v1/event/)
 
-## 4. Future plan
+## 3. Future plan
 
 - Make it more responsive with media queries.
 - Add 'comments' to make it more interactive between users
 - Categorize by topics
 - Fetch more information about Finland
 
-## 3. Demo
+## 4. Demo
 
-https://crytocurrencymarket.netlify.com/
+https://finlandforum.netlify.com/
