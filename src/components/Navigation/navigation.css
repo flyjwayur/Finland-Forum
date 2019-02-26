@@ -1,29 +1,29 @@
-.navBar{
-  padding: 3rem;
+.navBar {
+  padding: 0 3rem;
 }
 
-#navBrand{
+#navBrand {
   font-weight: 900;
-  font-size : 2rem;
+  font-size: 2rem;
   color: var(--light-indigo);
-  font-family : var(--font-title);
+  font-family: var(--font-title);
 }
 
-.navLink{
+.navLink {
   color: var(--light-indigo);
   font-weight: 700;
   font-size: 1.6rem;
-  font-family : var(--font-title);
+  font-family: var(--font-title);
 }
 
-.navLink:hover{
+.navLink:hover {
   border-bottom: 3px solid var(--yellow);
   box-shadow: 2px 2px 2px #ccc;
   padding: 0.7rem 0.5rem;
-  background-color : var(--light-blue);
-  color : var(--dark-indigo);
+  background-color: var(--light-blue);
+  color: var(--dark-indigo);
 }
 
-.navLink:active{
+.navLink:active {
   border-bottom: 3px solid var(--light-red);
 }

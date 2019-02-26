@@ -1,3 +1,9 @@
-.App {
+.appWrapper {
   text-align: center;
+  background-color: var(--dark-indigo);
+}
+
+.appMain {
+  width: 80%;
+  margin: 0 auto;
 }

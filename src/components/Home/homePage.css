@@ -1,64 +1,65 @@
-.wrapper{
+.wrapper {
   background-color: var(--dark-indigo);
-  color : var(--nearly-white); 
+  color: var(--nearly-white);
   margin-top: 1rem;
   padding-top: 3rem;
-  padding-bottom : 3rem;
+  padding-bottom: 3rem;
   text-align: center;
+  width: 100%;
 }
 
-.postsWrapper{
+.postsWrapper {
   margin-top: 2rem;
 }
 
-.card{
+.card {
   background-color: 'fff';
   color: var(--dark-indigo);
-  border : 2px solid var(--light-indigo);
-  margin : 1rem;
+  border: 2px solid var(--light-indigo);
+  margin: 1rem;
 }
 
-.cardBody:hover{
+.cardBody:hover {
   background-color: var(--light-yellow);
   box-shadow: inset 0px 0px 10px var(--yellow);
 }
 
-.cardText{
+.cardText {
   color: var(--dark-indigo);
   font-family: var(--font-content1);
-  font-size : 1.5rem;
+  font-size: 1.5rem;
 }
 
-.cardLink{
-  text-decoration: none; 
+.cardLink {
+  text-decoration: none;
 }
 
-.highlightText{
+.highlightText {
   color: var(--yellow);
   margin: auto 0.2rem;
 }
 
 .introFont {
-  font-family : var(--font-title);
+  font-family: var(--font-title);
 }
 
-.introTextLeft{
+.introTextLeft {
   margin-right: 10rem;
-  font-size : 1.7rem;
+  font-size: 1.7rem;
 }
 
-.introTextRight{
+.introTextRight {
   margin-left: 10rem;
-  font-size : 1.7rem;
+  font-size: 1.7rem;
 }
 
-.addPost{
-  font-size : 4rem;
-  color : var(--light-red);
+.addPost {
+  font-size: 4rem;
+  color: var(--light-red);
   float: right;
   margin-right: 5rem;
 }
 
-.addPost:hover{
-  color: var(--dark-red); 
+.addPost:hover {
+  color: var(--dark-red);
 }
