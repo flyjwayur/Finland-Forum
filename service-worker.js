@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Finland-Forum/precache-manifest.e52aa02e0795abbe6d0ff208262ceea6.js"
+  "/Finland-Forum/precache-manifest.cd3c25456bb860a1cf0ad1549a632593.js"
 );
 
 workbox.clientsClaim();
