@@ -1,12 +1,7 @@
-import {
-  ADD_POST,
-  DELETE_POST,
-  ACTIVE_POST_EDIT,
-  UPDATE_POST
-} from "../actions/actionTypes";
-import { posts } from "../../data/posts";
+import { ADD_POST, DELETE_POST, ACTIVE_POST_EDIT, UPDATE_POST } from '../actions/actionTypes';
+import { posts } from '../../data/posts';
 
-export const initialPostState = { posts, editable: false};
+export const initialPostState = { posts, editable: false };
 
 export const postsReducer = (state = initialPostState, action) => {
   switch (action.type) {
@@ -28,29 +23,30 @@ export const postsReducer = (state = initialPostState, action) => {
         ...state,
         posts: [
           ...state.posts.slice(0, indexOfpost),
-          ...state.posts.slice(indexOfpost + 1, state.posts.length)
-        ]
+          ...state.posts.slice(indexOfpost + 1, state.posts.length),
+        ],
       };
     case ACTIVE_POST_EDIT:
       const editablePostId = action.payload.id;
-      state.posts.map( post => {
+      // eslint-disable-next-line
+      state.posts.map(post => {
         if (post.id === editablePostId) {
           state.editable = true;
         }
       });
       return { ...state, editable: state.editable };
     case UPDATE_POST:
-    const indexOfEdittedPost = state.posts.findIndex(post => post.id === action.payload.id); 
-    const editablePost = [...state.posts][indexOfEdittedPost] = action.payload;
+      const indexOfEdittedPost = state.posts.findIndex(post => post.id === action.payload.id);
+      const editablePost = ([...state.posts][indexOfEdittedPost] = action.payload);
       return {
         ...state,
         editable: false,
-          posts: [
-            ...state.posts.slice(0, indexOfEdittedPost),
-            editablePost,
-            ...state.posts.slice(indexOfEdittedPost + 1, state.posts.length)
-          ]
-        };
+        posts: [
+          ...state.posts.slice(0, indexOfEdittedPost),
+          editablePost,
+          ...state.posts.slice(indexOfEdittedPost + 1, state.posts.length),
+        ],
+      };
     default:
       return state;
   }
