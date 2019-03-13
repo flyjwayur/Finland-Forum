@@ -74,7 +74,8 @@ class App extends Component {
 
     return (
       <div>
-        <Navigation />
+        {/* <Navigation /> */}
+        <div>Hello</div>
         <div className="appWrapper">
           <div className="appMain">
             <Switch>
