@@ -5,7 +5,7 @@ Do you want to share the information with others?
 Here is the website where you can write and also find information of events in Finland.
 I was inspired from [this website](https://www.finlandforum.org/)
 
-- Demo : https://finlandforum.netlify.com/
+- Demo : https://flyjwayur.github.io/Finland-Forum/
 
 ## 1. Main features
 
