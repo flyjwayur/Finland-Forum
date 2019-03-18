@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "eebafdf5ed36d82033fc",
+    "revision": "410fab64d581989afdbd",
     "url": "/Finland-Forum/static/css/main.90d35cee.chunk.css"
   },
   {
-    "revision": "eebafdf5ed36d82033fc",
-    "url": "/Finland-Forum/static/js/main.312e168e.chunk.js"
+    "revision": "410fab64d581989afdbd",
+    "url": "/Finland-Forum/static/js/main.d5e34733.chunk.js"
   },
   {
     "revision": "9cd541f6c98df797d24c",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Finland-Forum/static/js/2.e0ff8d15.chunk.js"
   },
   {
-    "revision": "596a388c62ac9bd83ed8dd8dc4b3fbe1",
+    "revision": "1f8b3a1090eb97fb2e36217228ccb88e",
     "url": "/Finland-Forum/index.html"
   }
 ];
